@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Grupos - UseCloud ERP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-800 font-sans">
+
+    <!-- Menu lateral -->
+    <div id="sidebar-menu"
+        class="fixed top-0 left-0 h-full w-64 bg-gray-800 text-white p-4 transform -translate-x-full transition-transform duration-300 z-50">
+
+        <!-- Barra superior do menu -->
+        <div class="flex items-center justify-between mb-4">
+            <span class="text-lg font-semibold">MENU</span>
+            <button type="button" id="closeButton" data-drawer-hide="drawer-disable-body-scrolling"
+                aria-controls="drawer-disable-body-scrolling"
+                class="text-gray-400 hover:cursor-pointer bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center hover:bg-gray-600 hover:text-white">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+                </svg>
+            </button>
+
+
+        </div>
+
+
+        <div class="py-4 overflow-y-auto">
+            <!-- Itens do menu -->
+            <ul class="space-y-2 font-medium">
+                <li>
+                    <a href="index.html"
+                        class="flex items-center p-2 rounded-lg text-white hover:text-orange-500 group">
+                        <svg class="w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white"
+                            aria-hidden="true" xmlsn="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 22 21">
+                            <path
+                                d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039.999.999 0 0 0-1-1.066h.002Z">
+                            </path>
+                            <path
+                                d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z">
+                            </path>
+                        </svg>
+                        <span class="ms-3">Menu Inicial</span>
+                    </a>
+                </li>
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base transition duration-75 rounded-lg group hover:text-orange-500 text-white"
+                        aria-controls="dropdown-comercial" data-collapse-toggle="dropdown-comercial">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 group-hover:text-gray-900 text-gray-400 group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 18 21">
+                            <path
+                                d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z">
+                            </path>
+                        </svg>
+                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Comercial</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4"></path>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-comercial" class="py-2 space-y-2 hidden">
+                        <li>
+                            <button type="button"
+                                class="flex items-center w-full p-2 text-base transition duration-75 rounded-lg pl-6 group hover:text-orange-500 text-white"
+                                aria-controls="dropdown-cadastros" data-collapse-toggle="dropdown-cadastros">
+                                <span class="flex-1 text-left">Cadastros</span>
+                                <svg class="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4"></path>
+                                </svg>
+                            </button>
+                            <ul id="dropdown-cadastros" class="py-2 space-y-2 hidden">
+                                <li
+                                    class="flex items-center w-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-white">
+                                    Clientes
+                                </li>
+                                <li
+                                    class="flex items-center w-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-white">
+                                    Fornecedores
+                                </li>
+                                <li
+                                    class="flex items-center w-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-white">
+                                    Representantes
+                                </li>
+                                <li
+                                    class="flex items-center w-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-white">
+                                    Condições de Pagamento
+                                </li>
+                                <li
+                                    class="flex items-center w-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-white">
+                                    Formas de Pagamento
+                                </li>
+                                <li
+                                    class="flex items-centerw-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-wite">
+                                    Tipos de Pedido
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base transition duration-75 rounded-lg group hover:text-orange-500 text-white"
+                        aria-controls="dropdown-estoque" data-collapse-toggle="dropdown-estoque">
+                        <svg class="shrink-0 w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1.06-1.76l-7-4a2 2 0 0 0-1.88 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1.06 1.76l7 4a2 2 0 0 0 1.88 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                        </svg>
+                        <span class="flex-1 ms-3 text-left rtl:text-right withespace-nowrap">Estoque</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4"></path>
+                        </svg>
+                    </button>
+                    <ul id="dropdown-estoque" class="py-2 space-y-2 hidden">
+                        <button type="button"
+                            class="flex items-center w-full p-2 text-base transition duration-75 rounded-lg pl-6 group hover:text-orange-500 text-white"
+                            aria-controls="dropdown-stock-registro" data-collapse-toggle="dropdown-stock-registro">
+                            <span class="flex-1 text-left">Cadastros</span>
+                            <svg class="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4"></path>
+                            </svg>
+                        </button>
+                        <ul id="dropdown-stock-registro" class="hidden py-2 space-y-2">
+                            <li
+                                class="flex items-centerw-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-wite">
+                                Marcas</li>
+                            <li onclick="window.location.href='grupos.html'"
+                                class="flex items-centerw-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-wite">
+                                Grupos</li>
+                            <li
+                                class="flex items-centerw-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-wite">
+                                Grifes</li>
+                            <li
+                                class="flex items-centerw-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-wite">
+                                Grades</li>
+                            <li onclick="window.location.href='cores.html'"
+                                class="flex items-centerw-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-wite">
+                                Cores</li>
+                        </ul>
+                </li>
+                <button type="button"
+                    class="flex items-center w-full p-2 text-base transition duration-75 rounded-lg pl-6 group hover:text-orange-500 text-white"
+                    aria-controls="dropdown-estoque-relatiorios" data-collapse-toggle="dropdown-estoque-relatiorios">
+                    <span class="flex-1 text-left">Estoque</span>
+                    <svg class="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 4 4 4-4"></path>
+                    </svg>
+                </button>
+                <ul id="dropdown-estoque-relatiorios" class="py-2 space-y-2 hidden">
+                    <li
+                        class="flex items-centerw-full p-2 transition duration-75 rounded-lg pl-11 group hover:text-orange-500 text-wite">
+                        Grades</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Barra superior compacta -->
+    <header
+        class="w-full bg-slate-900 shadow-lg border-b border-slate-700 px-4 py-2 flex items-center justify-between top-0 left-0 z-10">
+        <div class="max-w-[1600px] mx-auto w-full flex items-center justify-between">
+
+            <!-- Lado esquerdo -->
+            <div class="flex items-center gap-3">
+                <!-- Botão Hamburger -->
+                <button id="menu-button" class="flex flex-col justify-center items-end w-8 h-8 space-y-1">
+                    <span class="block w-6 h-[2px] bg-orange-500"></span>
+                    <span class="block w-6 h-[2px] bg-orange-500"></span>
+                    <span class="block w-6 h-[2px] bg-orange-500"></span>
+                </button>
+
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-orange-500 text-2xl">UseCloud</span>
+                </div>
+
+                <!-- Botão ERP -->
+                <button class="ml-2 bg-[#F5EEDD] text-orange-600 font-bold text-xs px-3 py-1 rounded">ERP</button>
+            </div>
+
+            <!-- Seletor de empresa -->
+            <div class="flex-1 max-w-xl mx-4">
+                <div class="relative">
+                    <select id="top-bar-companies-select" name="top-bar-companies-select"
+                        class="w-full bg-slate-700 text-gray-100 px-3 leading-tight focus:outline-none focus:ring-1 focus:ring-orange-900 h-10 rounded">
+                        <option selected>ZEEBEE - JM INDUSTRIA DE CONFECCOES E MARKETING LTDA</option>
+                        <option>ZEEBEE - EMPRESA 02</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Saudação -->
+            <div class="flex items-center gap-3">
+                <div class="h-8 w-8 rounded-full bg-gray-800 flex items-center justify-center">
+                    <span class="text-gray-300 font-semibold">P</span>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-white">Olá, <span class="font-semibold">Pérola</span></p>
+                    <p class="text-xs text-gray-400">Não Definido</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex w-full justify-center h-full">
+        <main class="flex flex-col w-full max-w-[1600px] mx-auto px-2 md:px-8 py-8 bg-slate-800 transition-colors">
+            <div class="flex items-center justify-start mb-6">
+                <div class="flex items-center gap-2">
+                    <ion-icon name="grid-outline" class="w-7 h-7 text-orange-500 md-hydrated" role="img">
+                        <div class="icon-inner">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <rect x="48" y="48" width="176" height="176" rx="20" ry="20" stroke="currentColor"
+                                    fill="none" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+                                <rect x="288" y="48" width="176" height="176" rx="20" ry="20" stroke="currentColor"
+                                    fill="none" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+                                <rect x="48" y="288" width="176" height="176" rx="20" ry="20" stroke="currentColor"
+                                    fill="none" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+                                <rect x="288" y="288" width="176" height="176" rx="20" ry="20" stroke="currentColor"
+                                    fill="none" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </ion-icon>
+                    <h1 class="text-2xl font-bold text-gray-100">Gerenciamento de Grupo de Produto</h1>
+                </div>
+            </div>
+            <div>
+                <form class="mb-6 flex flex-col md:flex-row gap-4 items-end justify-between w-full">
+                    <div class="flex items-center gap-4 max-x[800px] w-full">
+                        <div class="w-1/2 flex flex-col gap-2" id="div-filtro-procura-categoria-input">
+                            <input type="hidden" id name>
+                            <label for="filtro-procura-categoria-input"
+                                class="text-xs font-semibold text-gray-300">Pesquisa</label>
+                            <div
+                                class="flex items-center justify-between border border-gray-700 rounded transition focus:outline-none   relative">
+                                <input type="text" id="filtro-procura-categoria-input"
+                                    name="filtro-procura-categoria-input"
+                                    class="w-full border border-gray-700 bg-slate-700 text-gray-100 rounded px-3  uppercase   leading-tight focus:outline-none focus:ring-1 focus:ring-rose-900 placeholder-gray-500 transition   h-10 disabled:opacity-50 disabled:cursor-not-allowed">
+                            </div>
+                        </div>
+                        <div class="w-36 flex flex-col gap-2">
+                            <label for="filtro-procura-categoria-input"
+                                class="text-xs font-semibold text-gray-300">Situação do Grupo</label>
+                            <div
+                                class="flex items-center justify-between border border-gray-700 rounded transition focus:outline-none focus-within:border-orange-500 focus-within:ring-1 focus-within:ring-orange-500">
+                                <select id="filtro-situacao-select" name="filtro-situacao-select"
+                                    class="w-full bg-slate-700 text-gray-100 px-3 leading-tight focus:outline-none focus:ring-1 focus:ring-orange-500 h-10 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                                    style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                                    <option value>Todos</option>
+                                    <option value="Ativo">Ativo</option>
+                                    <option value="Inativo">Inativo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w-40 flex flex-col gap-2">
+                            <label for="filtro-categoria-tipo-select" class="text-xs font-semibold text-gray-300">Tipo
+                                de Grupo</label>
+                            <div
+                                class="flex items-center justify-between border border-gray-700 rounded transition focus:outline-none focus-within:border-orange-500 focus-within:ring-1 focus-within:ring-orange-500">
+                                <select id="filtro-categoria-tipo-select" name="filtro-categoria-tipo-select"
+                                    class="w-full bg-slate-700 text-gray-100 px-3 leading-tigh focus:outline-none focus-within:ring-1 focus:ring-orange-500 h-10 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                                    style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                                    <option value>Todos</option>
+                                    <option value="Matéria-Prima">Matéria-Prima</option>
+                                    <option value="Venda">Venda</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w-18 flex flex-col gap-2">
+                            <label for="filtro-subcategoria-situacao-select"
+                                class="text-xs font-semibold text-gray-300">Situação do Subgrupo</label>
+                            <div
+                                class="flex items-center justify-between border border-gray-700 rounded transition focus:outline-none   focus-within:border-orange-500 focus-within:ring-1 focus-within:ring-orange-500 ">
+                                <select id="filtro-subcategoria-situacao-select"
+                                    name="filtro-subcategoria-situacao-select"
+                                    class="w-full bg-slate-700 text-gray-100 px-3 leading-tight focus:outline-none   focus:ring-1 focus:ring-orange-500   h-10 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                                    style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                                    <option value>Todos</option>
+                                    <option value="Ativo">Ativo</option>
+                                    <option value="Inativo">Inativo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="new-category-button" onclick="openNewCategoryForm()"
+                        class="group relative overflow-hidden hover:cursor-pointer p-2 hover:pr-32 rounded-full bg-orange-700 hover:bg-orange-600 transition-all flex items-center justify-center min-w-[40px] max-w-[490px] duration-200"
+                        title="Novo Grupo de Produto">
+                        <!-- Ícone -->
+                        <ion-icon name="add-outline" class="w-6 h-6 text-slate-100 transition-all"></ion-icon>
+
+                        <!-- Texto que aparece no hover -->
+                        <span
+                            class="absolute left-11 opacity-0 group-hover:opacity-100 group-hover:left-11 whitespace-nowrap text-rose-100 font-semibold transition-all duration-200">
+                            Novo Grupo
+                        </span>
+                    </button>
+                </form>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+                <!-- Card: Exemplo 1 -->
+                <div class="flex flex-col bg-gray-900/50 rounded-xl shadow-lg h-[300px]">
+                    <div class="flex items-center justify-between px-6 py-4">
+                        <span class="text-white font-semibold whitespace-nowrap">EXEMPLO 1</span>
+                        <!-- Ícone lápis -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            class="w-7 h-7 text-orange-500 hover:text-rose-300 cursor-pointer">
+                            <path d="M384 224v184a40 40 0 01-40 40H104a40 40 0 01-40-40V168a40 40 0 0140-40h167.48"
+                                fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M459.94 53.25a16.06 16.06 0 00-23.22-.56L424.35 65a8 8 0 000 11.31l11.34 11.32a8 8 0 0011.34 0l12.06-12c6.1-6.09 6.67-16.01.85-22.38zM399.34 90L218.82 270.2a9 9 0 00-2.31 3.93L208.16 299a3.91 3.91 0 004.86 4.86l24.85-8.35a9 9 0 003.93-2.31L422 112.66a9 9 0 000-12.66l-9.95-10a9 9 0 00-12.71 0z"
+                                fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <hr class="border-t border-gray-700 mx-4 mb-2">
+                    <button type="button" onclick="openNewSubcategoryForm(1)"
+                        class="flex justify-center mx-4 px-6 py-2 items-center gap-1 rounded text-gray-400 font-semibold hover:text-white transition cursor-pointer">
+                        <ion-icon name="add-outline" class="w-5 h-5"></ion-icon>
+                        <span class="hidden md:inline">Novo Subgrupo</span>
+                    </button>
+                    <div class="flex-1 px-2 overflow-y-auto scroll-personalizado">
+                        <!-- Item: Exemplo 1 -->
+                        <div class="flex text-white items-center justify-between px-6 py-2">
+                            <span class="whitespace-nowrap font-semibold">EXEMPLO 1</span>
+                            <ion-icon name="ellipsis-horizontal"
+                                class="w-5 h-5 text-white/50 hover:text-white cursor-pointer"></ion-icon>
+                        </div>
+
+                        <!-- Item: Olá -->
+                        <div class="flex text-white items-center justify-between px-6 py-2">
+                            <span class="whitespace-nowrap font-semibold">EXEMPLO </span>
+                            <ion-icon name="ellipsis-horizontal"
+                                class="w-5 h-5 text-white/50 hover:text-white cursor-pointer"></ion-icon>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Card: EXEMPLO 2 -->
+                <div class="flex flex-col bg-gray-900/50 rounded-xl shadow-lg h-[300px]">
+                    <div class="flex items-center justify-between px-6 py-4">
+                        <span class="text-white font-semibold whitespace-nowrap">EXEMPLO 2</span>
+                        <!-- Ícone lápis -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            class="w-7 h-7 text-orange-500 hover:text-rose-300 cursor-pointer">
+                            <path d="M384 224v184a40 40 0 01-40 40H104a40 40 0 01-40-40V168a40 40 0 0140-40h167.48"
+                                fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M459.94 53.25a16.06 16.06 0 00-23.22-.56L424.35 65a8 8 0 000 11.31l11.34 11.32a8 8 0 0011.34 0l12.06-12c6.1-6.09 6.67-16.01.85-22.38zM399.34 90L218.82 270.2a9 9 0 00-2.31 3.93L208.16 299a3.91 3.91 0 004.86 4.86l24.85-8.35a9 9 0 003.93-2.31L422 112.66a9 9 0 000-12.66l-9.95-10a9 9 0 00-12.71 0z"
+                                fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <hr class="border-t border-gray-700 mx-4 mb-2">
+                    <button type="button" onclick="openNewSubcategoryForm(2)"
+                        class="flex justify-center mx-4 px-6 py-2 items-center gap-1 rounded text-gray-400 font-semibold hover:text-white transition cursor-pointer">
+                        <ion-icon name="add-outline" class="w-5 h-5"></ion-icon>
+                        <span class="hidden md:inline">Novo Subgrupo</span>
+                    </button>
+                    <div class="flex-1 px-2 overflow-y-auto scroll-personalizado"></div>
+                </div>
+
+                <!-- Card: TECIDOS -->
+                <div class="flex flex-col bg-gray-900/50 rounded-xl shadow-lg h-[300px]">
+                    <div class="flex items-center justify-between px-6 py-4">
+                        <span class="text-white font-semibold whitespace-nowrap">TECIDOS</span>
+                        <!-- Ícone lápis -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            class="w-7 h-7 text-orange-500 hover:text-rose-300 cursor-pointer">
+                            <path d="M384 224v184a40 40 0 01-40 40H104a40 40 0 01-40-40V168a40 40 0 0140-40h167.48"
+                                fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M459.94 53.25a16.06 16.06 0 00-23.22-.56L424.35 65a8 8 0 000 11.31l11.34 11.32a8 8 0 0011.34 0l12.06-12c6.1-6.09 6.67-16.01.85-22.38zM399.34 90L218.82 270.2a9 9 0 00-2.31 3.93L208.16 299a3.91 3.91 0 004.86 4.86l24.85-8.35a9 9 0 003.93-2.31L422 112.66a9 9 0 000-12.66l-9.95-10a9 9 0 00-12.71 0z"
+                                fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <hr class="border-t border-gray-700 mx-4 mb-2">
+                    <button type="button" onclick="openNewSubcategoryForm(3)"
+                        class="flex justify-center mx-4 px-6 py-2 items-center gap-1 rounded text-gray-400 font-semibold hover:text-white transition cursor-pointer">
+                        <ion-icon name="add-outline" class="w-5 h-5"></ion-icon>
+                        <span class="hidden md:inline">Novo Subgrupo</span>
+                    </button>
+                    <div class="flex-1 px-2 overflow-y-auto scroll-personalizado"></div>
+                </div>
+
+                <!-- Card: AVIAMENTOS COSTURA -->
+                <div class="flex flex-col bg-gray-900/50 rounded-xl shadow-lg h-[300px]">
+                    <div class="flex items-center justify-between px-6 py-4">
+
+                        <span class="text-white font-semibold whitespace-nowrap">AVIAMENTOS COSTURA</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            class="w-7 h-7 text-orange-500 hover:text-rose-300">
+                            <path d="M384 224v184a40 40 0 01-40 40H104a40 40 0 01-40-40V168a40 40 0 0140-40h167.48"
+                                fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M459.94 53.25a16.06 16.06 0 00-23.22-.56L424.35 65a8 8 0 000 11.31l11.34 11.32a8 8 0 0011.34 0l12.06-12c6.1-6.09 6.67-16.01.85-22.38zM399.34 90L218.82 270.2a9 9 0 00-2.31 3.93L208.16 299a3.91 3.91 0 004.86 4.86l24.85-8.35a9 9 0 003.93-2.31L422 112.66a9 9 0 000-12.66l-9.95-10a9 9 0 00-12.71 0z"
+                                fill="none" stroke="currentColor" stroke-width="32" stroke-linecap="round"
+                                stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </div>
+                    <hr class="border border-gray-700 mx-4 mb-2">
+                    <button type="button" oneclick="openNewSubcategoryForm"
+                        class="flex justify-center mx-4 px-6 py-2 hover:cursor-pointer new-subcategory-button items-center gap-1 px-3 py-1 rounded text-gray-400 font-semibold hover:text-white transition">
+                        <ion-icon name="add-outline" class="w-5 h-5 md hydrated" role="img">
+                            <div class="icon-inner">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon s-ion-icon"
+                                    viewBox="0 0 512 512">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M256 112v288M400 256H112"
+                                        class="ionicon-fill-none ionicon-stroke-width">
+                                    </path>
+                                </svg>
+                            </div>
+                        </ion-icon>
+                        <span class="hidden md:inline">Novo Subgrupo</span>
+                    </button>
+                    <div class="subcategories-container flex flex-col gap-1 px-2 overflow-y-auto scroll-personalizado">
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-end gap-2 mt-4 text-sm font-medium">
+                <button
+                    class="px-3 py-1 rounded text-gray-300 hover:text-white hover:bg-gray-700 transition">Anterior</button>
+
+                <button class="px-3 py-1 rounded text-white bg-orange-500">1</button>
+                <button class="px-3 py-1 rounded text-gray-300 hover:text-white hover:bg-gray-700 transition">2</button>
+                <button class="px-3 py-1 rounded text-gray-300 hover:text-white hover:bg-gray-700 transition">3</button>
+                <button class="px-3 py-1 rounded text-gray-300 hover:text-white hover:bg-gray-700 transition">4</button>
+                <button class="px-3 py-1 rounded text-gray-300 hover:text-white hover:bg-gray-700 transition">5</button>
+
+                <button
+                    class="px-3 py-1 rounded text-gray-300 hover:text-white hover:bg-gray-700 transition">Próxima</button>
+            </div>
+
+    </div>
+    </div>
+    </main>
+    </div>
+
+    <!-- Script para abrir/fechar menu -->
+    <script>
+        const menuButton = document.getElementById("menu-button");
+        const closeButton = document.getElementById("closeButton");
+        const sidebar = document.getElementById("sidebar-menu");
+
+        menuButton.addEventListener("click", () => {
+            sidebar.classList.remove("-translate-x-full");
+        });
+
+        closeButton.addEventListener("click", () => {
+            sidebar.classList.add("-translate-x-full");
+        });
+
+        function setupDropdown(toggleSelector, dropdownSelector) {
+            var btn = drawer.querySelector(toggleSelector);
+            var dropdown = drawer.querySelector(dropdownSelector);
+            if (btn && dropdown) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('hidden');
+                });
+            }
+        }
+    </script>
+    <script>
+        // Botões que controlam dropdowns
+        const toggleButtons = document.querySelectorAll('[data-collapse-toggle]');
+
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-collapse-toggle');
+                const targetDropdown = document.getElementById(targetId);
+                if (!targetDropdown) return;
+
+                // Se já está visível, alterna para ocultar
+                const willShow = targetDropdown.classList.contains('hidden');
+
+                // Fecha todos os dropdowns que NÃO são o alvo nem seus ancestrais
+                const allDropdowns = document.querySelectorAll('[id^="dropdown-"]');
+                allDropdowns.forEach(dropdown => {
+                    const isTarget = dropdown === targetDropdown;
+                    const isAncestor = dropdown.contains(targetDropdown); // mantém o pai aberto
+
+                    if (!isTarget && !isAncestor) {
+                        dropdown.classList.add('hidden');
+                    }
+                });
+
+                // Mostra/oculta somente o alvo conforme o estado desejado
+                if (willShow) {
+                    targetDropdown.classList.remove('hidden');
+                } else {
+                    targetDropdown.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
